@@ -1,0 +1,57 @@
+{
+  "name": "tabelpress",
+  "version": "1.0.0",
+  "description": "express + tabel base",
+  "main": "index.js",
+  "dependencies": {
+    "bcrypt": "^1.0.1",
+    "body-parser": "^1.15.2",
+    "cors": "^2.8.1",
+    "errorhandler": "^1.5.0",
+    "express": "^4.14.0",
+    "express-cluster": "0.0.4",
+    "is-email": "^1.0.0",
+    "is-uuid": "^1.0.2",
+    "isusableobject": "^1.0.0",
+    "lodash": "^4.17.3",
+    "moment": "^2.17.1",
+    "multer": "^1.2.1",
+    "pg": "^6.1.2",
+    "rand-token": "^0.3.0",
+    "request": "^2.79.0",
+    "request-promise": "^4.1.1",
+    "shape-errors": "^1.0.1",
+    "tabel": "^1.5.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-eslint": "^7.1.1",
+    "babel-plugin-transform-object-rest-spread": "^6.20.2",
+    "eslint": "^3.12.2",
+    "eslint-plugin-babel": "^4.0.0",
+    "forever": "^0.15.3",
+    "nodemon": "^1.11.0",
+    "serve-static": "^1.11.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "script": "NODE_PATH=. babel-node",
+    "task": "NODE_PATH=. babel-node app/task.js",
+    "migrate": "NODE_PATH=. babel-node migrate.js",
+    "prod": "NODE_ENV=production NODE_PATH=. babel-node app/cli.js",
+    "http": "NODE_PATH=. babel-node app/http.js",
+    "http.dev": "NODE_PATH=. nodemon --exec babel-node app/http.js",
+    "http.forever": "NODE_ENV=production NODE_PATH=. forever -a start --uid \"api.server\" --minUptime=1000 --spinSleepTime=5000 ./node_modules/.bin/babel-node ./app/http.js",
+    "forever.stop": "NODE_ENV=production NODE_PATH=. forever stopall && pkill -f /app/http.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fractaltech/tabelpress.git"
+  },
+  "author": "Kapil Verma <kapv89@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fractaltech/tabelpress/issues"
+  },
+  "homepage": "https://github.com/fractaltech/tabelpress#readme"
+}
