@@ -30,7 +30,7 @@ function register(data={}) {
   ));
 }
 
-function login(username, password) {
+function login({username, password}) {
   return findUserByUsername(username).then((user) => user ? (
     bcrypt.compare(password, user.hashed_password).then((res) => res ? (
       generateUniqueAuthToken(user).then((token) => ({token, user}))
