@@ -5,6 +5,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/auth', require('./auth'));
+app.use('/posts', require('./posts'));
 
 // the catch all route
 app.all('*', (req, res) => {
