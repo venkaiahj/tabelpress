@@ -4,7 +4,7 @@
   "description": "express + tabel base",
   "main": "index.js",
   "dependencies": {
-    "bcrypt": "^1.0.1",
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.15.2",
     "cors": "^2.8.1",
     "errorhandler": "^1.5.0",

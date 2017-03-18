@@ -1,6 +1,6 @@
 const randToken = require('rand-token');
 const shape = require('shape-errors');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const {isString} = require('lodash');
 
 const authConfig = require('config').auth;
