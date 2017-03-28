@@ -11,6 +11,7 @@ function findUserById(id) {
 }
 
 function createUser({username, password}) {
+	console.log('user name n password', username, password);
   return bcrypt.hash(password, 10)
     .then((hashed_password) => table('users').insert({username, hashed_password}))
   ;

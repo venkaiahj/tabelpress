@@ -15,6 +15,7 @@ const {
 } = require('./users');
 
 function register(data={}) {
+  console.log('data in register method is', data);
   return shape({
     username: (username) => (
       isString(username) && username.length > 0 ?

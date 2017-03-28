@@ -8,7 +8,7 @@ function loadTables(orm) {
     },
 
     relations: {
-      author() {
+      user() {
         return this.belongsTo('users', 'user_id');
       }
     }
@@ -25,6 +25,20 @@ function loadTables(orm) {
     relations: {
       posts() {
         return this.hasMany('posts', 'user_id');
+      }
+    }
+  });
+
+  orm.defineTable({
+    name: 'todos',
+    props: {
+      autoId: true,
+      timestamps: true
+    },
+
+    relations: {
+      user() {
+        return this.belongsTo('users', 'user_id');
       }
     }
   });

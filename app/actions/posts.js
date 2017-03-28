@@ -6,9 +6,9 @@ const {table, scoper} = require('app/orm');
 
 function getPosts(params={}) {
   const t = table('posts').eagerLoad('user');
-
+  console.log(params);
   return scoper({
-    user_id: (t, user_id) => isuuid(user_id) ? t.where('user_id', user_id) : t,
+    user_id: (t, user_id) => isuuid.v1(user_id) ? t.where('user_id', user_id) : t,
     title: (t, title) => isString(title) ? t.whereRaw('lower(title) like ?', [`${title}%`]) : t
   }).apply(t, params).all();
 }
@@ -20,7 +20,7 @@ function createPostForUser(user, data={}) {
     ) : (
       'invalid'
     ),
-    body: (body) => isString(body) && body.length > 0
+    body: (body) =>  isString(body) && body.length > 0 ? null : 'invalid'
   }).errors(data).then((err) => err ? (
     Promise.reject(err)
   ) : (
